@@ -51,8 +51,9 @@ class Stack {
         void pop() throw (std::runtime_error);
 
         /* @brief Obtain the value from the top of the stack.
-         * @return the object from the top. */
-        T peek() const;
+         * @return the object from the top. 
+         * @throw runtime_error if list is empty. */
+        T peek() const throw (std::runtime_error);
 
 };
 #include "Stack.hpp"

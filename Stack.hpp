@@ -43,16 +43,37 @@ Stack& Stack<T>::operator=(const Stack& orig) {
  ********************************/
 
 /* @brief Insert a value at the top of the stack.
-* @param entry Value to be stored in the stack. */
+ * @param entry Value to be stored in the stack. */
 template <typename T>
-void Stack<T>::push(T entry);
+void Stack<T>::push(T entry) {
+    //Just add to the front. We will assume the front is the "top" of the stack.
+    m_stack->addFront(entry);
+}
 
 /* @brief Remove a value from the top of the stack.
-* @throw runtime_error if list is empty. */
+ * @throw runtime_error if list is empty. */
 template <typename T>
-void Stack<T>::pop() throw (std::runtime_error);
+void Stack<T>::pop() throw (std::runtime_error) {
+    //If the stack isn't empty, continue...
+    if(!m_stack->isEmpty()) {
+        m_stack->removeFront();
+        /* Note: remove(1) could have worked as well.
+         * However as I am running with front as my "top", this
+         * makes more sense. */
+    } else { //else throw an error.
+        throw std::runtime_error("Pop invalid, stack is empty!\n");
+    }
+}
 
 /* @brief Obtain the value from the top of the stack.
-* @return the object from the top. */
+ * @return the object from the top. 
+ * @throw runtime_error if list is empty. */
 template <typename T>
-T Stack<T>::peek() const;
+T Stack<T>::peek() const throw (std::runtime_error) {
+    //If the stack isn't empty, continue...
+    if(!m_stack->isEmpty()) {
+        return m_stack->getEntry(1);
+    } else { //else throw an error.
+        throw std::runtime_error("Peek invalid, stack is empty!\n");
+    }
+}
