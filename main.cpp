@@ -1,11 +1,10 @@
-/***********************************************
- *
- * Author: Dalton Yoder
- * Date: 5/27/2021
- * File: main.cpp
- * Desc: "main" for the Stack implementation
- *
- **********************************************/
+// -*- C++ -*-
+/****************************************************
+ * @author Dalton Yoder
+ * @file main.cpp
+ * @desc "main" class for my Stack implementation.
+ * @date 27 May 2021
+ ***************************************************/
 #include "StackTester.h"
 
 int main() {        //No need for command line arguments
